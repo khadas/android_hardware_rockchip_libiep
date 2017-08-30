@@ -19,7 +19,8 @@ LOCAL_LDFLAGS := \
 	-Wl,-z,defs
 
 LOCAL_SHARED_LIBRARIES := \
-	libcutils
+	libcutils \
+	liblog \
 
 LOCAL_MODULE := libiep
 LOCAL_MODULE_TAGS    := optional
