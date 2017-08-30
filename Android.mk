@@ -14,7 +14,8 @@ LOCAL_CFLAGS := \
 	-Wextra \
 	-DLOG_TAG=\"libiep\"
 
-LOCAL_C_INCLUDES += $(TOP)/hardware/libhardware/include
+LOCAL_C_INCLUDES += $(TOP)/hardware/libhardware/include \
+		    $(TOP)/hardware/libhardware/include/hardware \
 LOCAL_LDFLAGS := \
 	-Wl,-z,defs
 
