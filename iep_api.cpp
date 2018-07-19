@@ -28,7 +28,6 @@ static int enh_alpha_table[][25] = {
 };
 
 // rr = 1.7 rg = 1 rb = 0.6
-/*
 static unsigned int cg_tab[] =
 {
 0x01010100, 0x03020202, 0x04030303, 0x05040404, 
@@ -80,7 +79,6 @@ static unsigned int cg_tab[] =
 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 
 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff
 };
-*/
 
 #define IEP_DEB(fmt, args...)   do { \
                                     if (g_log_level > 0) { \
@@ -149,7 +147,7 @@ private:
 
 static int g_mode = 0;
 static int g_log_level = 0;
-//static pthread_once_t g_get_env_value_once = PTHREAD_ONCE_INIT;
+static pthread_once_t g_get_env_value_once = PTHREAD_ONCE_INIT;
 static struct IEP_CAP cap;
 
 static void get_env_value()
@@ -785,9 +783,9 @@ void iep_api::recover_image(struct rga_req *req, iep_img *dst)
     req->dst.x_offset = 0;
     req->dst.y_offset = 0;
 
-    IEP_DEB("src y %lx u %lx v %lx, dst y %lx u %lx v %lx\n",
-            (long)req->src.yrgb_addr, (long)req->src.uv_addr, (long)req->src.v_addr,
-            (long)req->dst.yrgb_addr, (long)req->dst.uv_addr, (long)req->dst.v_addr);
+    IEP_DEB("src y %x u %x v %x, dst y %x u %x v %x\n",
+            req->src.yrgb_addr, req->src.uv_addr, req->src.v_addr,
+            req->dst.yrgb_addr, req->dst.uv_addr, req->dst.v_addr);
 
     IEP_DEB("src vir %d x %d, dst vir %d x %d\n", req->src.vir_w,
             req->src.vir_h, req->dst.vir_w, req->dst.vir_h);

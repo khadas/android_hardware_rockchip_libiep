@@ -19,6 +19,7 @@ LOCAL_C_INCLUDES += $(TOP)/hardware/libhardware/include \
 LOCAL_LDFLAGS := \
 	-Wl,-z,defs
 
+LOCAL_CFLAGS += -Wno-error
 LOCAL_SHARED_LIBRARIES := \
 	libcutils \
 	liblog \
@@ -46,7 +47,7 @@ LOCAL_SHARED_LIBRARIES := \
 	libvpu
 
 #LOCAL_LDLIBS += -lpthread
-
+LOCAL_CFLAGS += -Wno-error
 LOCAL_MODULE := iep_func_test
 LOCAL_MODULE_TAGS := optional tests
 LOCAL_PRELINK_MODULE := false
