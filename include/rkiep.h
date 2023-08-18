@@ -16,12 +16,14 @@
 
 namespace android {
 
+#define IEP_VERSION "IEP-1.0.1"
+
 class rkiep {
     public:
         rkiep();
         ~rkiep();
         int iep2_init(int width, int height, int format);
-		int iep2_deinterlace(int srcfd0, int srcfd1, int srcfd2, int dstfd0, int dstfd1);
+		int iep2_deinterlace(int srcfd0, int srcfd1, int srcfd2, int dstfd0, int dstfd1, int *dil_order);
 		int iep2_deinit();
 };
 
